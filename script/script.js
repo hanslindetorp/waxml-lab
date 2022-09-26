@@ -234,7 +234,7 @@ class HandController extends EventTarget {
 
 
 var handController = new HandController(canvasElement);
-
+var muteState = false;
 
 function onResults(results) {
 
@@ -245,10 +245,12 @@ function onResults(results) {
 
 
   if (results.multiHandLandmarks && results.multiHandedness) {
-    if(results.multiHandLandmarks.length){
-      waxml.master.fadeIn();
-    } else {
-      waxml.master.fadeOut();
+    if(results.multiHandLandmarks.length && muteState){
+      waxml.unmute();
+      muteState = false;
+    } else if(!results.multiHandLandmarks.length && !muteState){
+      waxml.mute();
+      muteState = true;      
     }
     for (let index = 0; index < results.multiHandLandmarks.length; index++) {
       const classification = results.multiHandedness[index];
