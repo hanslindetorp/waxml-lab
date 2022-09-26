@@ -245,6 +245,11 @@ function onResults(results) {
 
 
   if (results.multiHandLandmarks && results.multiHandedness) {
+    if(results.multiHandLandmarks.length){
+      waxml.master.fadeIn();
+    } else {
+      waxml.master.fadeOut();
+    }
     for (let index = 0; index < results.multiHandLandmarks.length; index++) {
       const classification = results.multiHandedness[index];
       const isRightHand = classification.label === 'Right';
