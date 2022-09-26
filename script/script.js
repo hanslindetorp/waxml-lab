@@ -245,13 +245,17 @@ function onResults(results) {
 
 
   if (results.multiHandLandmarks && results.multiHandedness) {
-    if(results.multiHandLandmarks.length && muteState){
-      waxml.unmute();
-      muteState = false;
-    } else if(!results.multiHandLandmarks.length && !muteState){
-      waxml.mute();
-      muteState = true;      
+    // mute if no hands are visible
+    if(waxml && waxml.master){
+      if(results.multiHandLandmarks.length && muteState){
+        waxml.unmute();
+        muteState = false;
+      } else if(!results.multiHandLandmarks.length && !muteState){
+        waxml.mute();
+        muteState = true;      
+      }
     }
+    
     for (let index = 0; index < results.multiHandLandmarks.length; index++) {
       const classification = results.multiHandedness[index];
       const isRightHand = classification.label === 'Right';
