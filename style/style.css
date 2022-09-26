@@ -91,6 +91,7 @@ navigation > select {
   margin: 3px;
 }
 
+
 .block {
   display: block;
 }
@@ -99,6 +100,7 @@ textarea {
   margin: 0px;
   width: 100%;
   height: 480px;
+  line-height: 1.5em;
   box-sizing: border-box;
   overflow: scroll;
 }
@@ -141,6 +143,44 @@ textarea {
 }
 #edit #statistics tr > *:nth-child(2) {
   text-align: right;
+}
+
+#edit .info select {
+  margin: 1em 0em;
+}
+
+#edit .info > div {
+  display: inline-block;
+}
+
+#edit .info .img-container {
+  float: right;
+}
+
+#edit .info img {
+  width: 300px;
+  height: auto;
+}
+
+
+#edit .info .code-guide {
+  width: 600px;
+}
+
+#edit .info .code-guide > div > div {
+  display: none;
+}
+
+#edit .info .code-snippet {
+  padding: 1em;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  line-height: 1.5em;
+}
+
+#edit .info .code-guide > div > div.active {
+  display: block;
 }
 
 

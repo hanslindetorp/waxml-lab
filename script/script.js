@@ -476,6 +476,14 @@ window.addEventListener("load", () => {
   });
 
 
+  document.querySelector("#edit .info select").addEventListener("change", e => {
+    let i = e.target.selectedIndex;
+    document.querySelectorAll("#edit .info .code-guide > div > div").forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(`#edit .info .code-guide > div > div:nth-child(${i})`).forEach(el => el.classList.add("active"));
+    
+  });
+
+
 
   window.location = "#play";
 

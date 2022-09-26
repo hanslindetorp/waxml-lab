@@ -143,6 +143,51 @@
         <a target="_blank" href="data.txt">Example code</a>
         
         <textarea id="xml-edit"></textarea>
+
+        <div class="info">
+          <div class="code-guide">
+            <select>
+              <option>Documentation...</option>
+              <option>OscillatorNode</option>
+              <option>BiquadFilterNode</option>
+              <option>GainNode</option>
+              <option>Noise</option>
+              <option>Mixer</option>
+              <option>Chain</option>
+              <option>var</option>
+            </select>
+            <div class="code-description">
+              <div>The OscillatorNode can generate sine, sawtooth, square or triangle waveform. Attributes: type, detune, output & frequency</div>
+              <div>The BiquadFilterNode can work as a lowpass, bandpass, highpass, lowshelf, peak or highshelf filter. Attributes: type, detune, frequency, output & Q</div>
+              <div>The GainNode controls the volume of the signal. Attributes: gain & output (between 0-1)</div>
+              <div>The Noise element generates white noise. Attributes: output</div>
+              <div>The Mixer element sums the output from all child elements. The mixer can have a gain and an output attribute.</div>
+              <div>The Chain element connects all child elements in a chain from top to bottom. The last is connected to the output of the Chain-element. The Chain can have a gain and an output attribute.</div>
+          
+              <div>The var element is used to map values from an interaction to a suitable range for an audio parameter. The examples below shows how to map an 
+                interaction variable to a sliding pitch, a major scale pitch and a gain value that is inverted compared to the interaction variable. 
+              </div>
+
+            </div>
+            <h4>Example:</h4>
+            <div class="code-snippet">
+              <div>&lt;OscillatorNode type=&quot;sawtooth&quot; frequency=&quot;440&quot; output=&quot;next&quot; /&gt;</div>
+              <div>&lt;BiquadFilterNode type=&quot;lowpass&quot; frequency=&quot;440&quot; Q=&quot;20&quot; output=&quot;next&quot; /&gt;</div>
+              <div>&lt;GainNode gain=&quot;0.5&quot; output=&quot;next&quot; /&gt;</div>
+              <div>&lt;Noise output=&quot;next&quot; /&gt;</div>
+              <div>&lt;Mixer gain=&quot;0.5&quot; output=&quot;next&quot; /&gt;</div>
+              <div>&lt;Chain gain=&quot;0.5&quot; output=&quot;next&quot; /&gt;</div>
+              
+              <div>
+                &lt;var name=&quot;sliding_pitch&quot; value=&quot;$interaction_variable&quot; mapin=&quot;0,1&quot; mapout=&quot;36,48&quot; convert=&quot;MIDI-&gt;frequency&quot; /&gt;<br />
+                &lt;var name=&quot;scale_pitch&quot; value=&quot;$interaction_variable&quot; mapin=&quot;0,1&quot; mapout=&quot;60, 62, 64, 65, 67, 69, 71, 72&quot; curve=&quot;step&quot;  convert=&quot;MIDI-&gt;frequency&quot; /&gt;<br />
+                &lt;var name=&quot;inverted_gain&quot; value=&quot;$interaction_variable&quot; mapin=&quot;0,1&quot; mapout=&quot;1,0&quot; /&gt;<br />
+              
+              </div>
+            </div>
+          </div>
+          <div class="img-container"><img src="images/hand.png" /></div>
+        </div>
       </section>
 
       <section id="share">
