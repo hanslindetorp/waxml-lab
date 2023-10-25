@@ -267,3 +267,8 @@ waxml-xy-handle.remoteControl {
   border-radius: 20px !important;
   color: white;
 }
+#qr {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
