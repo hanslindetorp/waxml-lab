@@ -269,6 +269,9 @@ waxml-xy-handle.remoteControl {
 }
 #qr {
   position: absolute;
-  bottom: 0px;
+  display: none;
+  width: 15%;
+  height: auto;
+  top: 40px;
   left: 0px;
 }
